@@ -20,14 +20,16 @@ def main():
     client.connect()
 
     while True:
-        message = input("Please specify the recipient's username or enter 'q' to quit: ")
+        recipient = input("Please specify the recipient's username or enter 'q' to quit: ")
 
-        if message == 'q':
+        if recipient == 'q':
             client.disconnect()
             break
         else:
-            recipient = input("Enter your message: ")
+            message = input("Enter your message: ")
             client.send_message(recipient, message)
+
+    client.disconnect()
 
     #message = input("Enter your message: ")
 
